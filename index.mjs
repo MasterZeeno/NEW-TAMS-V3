@@ -33,8 +33,8 @@ async function downloadGoogleFonts() {
   //   }
 }
 
-async function ls(path) {
-  const dir = await fs.promises.opendir(path)
+async function ls(fontsFolderPath) {
+  const dir = await fs.promises.opendir(fontsFolderPath)
   for await (const dirent of dir) {
     console.log(dirent.name)
   }
