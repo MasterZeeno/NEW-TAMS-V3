@@ -35,12 +35,12 @@ async function downloadGoogleFonts() {
 
 async function checkFolder() {
   try {
-    const files = await fsPromises.readdir(fontsFolderPath  )
+    const files = await fsPromises.readdir(fontsFolderPath)
     if (files.length > 0 && files.some((file) => file.includes(substringToCheck))) {
       files.forEach((e) => {
         if (e.includes('-')) {
           const trimmedName = e.split('-')[1]
-          if (fontWeights.some(Number(trimmedName)) != -1) {
+          if (fontWeights.some(Number(trimmedName)) != true) {
             fontsToDownload.push(Number(trimmedName))
           }
         }
