@@ -1,8 +1,9 @@
 {
   "name": "new-tams-v3",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
+    "start": "node index.mjs",
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
@@ -32,6 +33,7 @@
     "@vue/tsconfig": "^0.4.0",
     "eslint": "^8.49.0",
     "eslint-plugin-vue": "^9.17.0",
+    "get-google-fonts": "^1.2.2",
     "jsdom": "^22.1.0",
     "npm-run-all2": "^6.0.6",
     "prettier": "^3.0.3",

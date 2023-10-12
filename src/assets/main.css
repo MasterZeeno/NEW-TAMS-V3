@@ -2,33 +2,34 @@
 
 #app {
   max-width: var(--hcc-max-width);
-  margin: 0 auto;
-  padding: 2rem;
   font-weight: normal;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: auto;
 }
 
-a {
+a,
+.red {
   text-decoration: none;
-  color: var(--hcc-anchor);
-  transition: 0.4s;
+  color: var(--hcc-red);
+  transition: color 0.4s ease-in-out;
 }
 
 .blue {
   color: var(--hcc-blue);
 }
 
-.red {
-  color: var(--hcc-red);
-}
-
 @media (hover: hover) {
   a:hover {
-    background-color: hsla(var(--hcc-blue), 0.2);
+    /* background-color: hsla(var(--hcc-blue), 0.2); */
+    font-weight: 500;
   }
 }
 
-@media (min-width: 1024px) {
-  body {
+@media (min-width: calc(var(--hcc-min-width)*2)) {
+  /* body {
     display: flex;
     place-items: center;
   }
@@ -37,5 +38,5 @@ a {
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 0 2rem;
-  }
+  } */
 }
