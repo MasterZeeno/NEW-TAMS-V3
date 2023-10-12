@@ -9,7 +9,7 @@ const fontsFolderPath = path
   .substring(1)
   .replaceAll('%20', ' ')
   .replaceAll('\\', '/') // Specify the path relative to the project's root
-const substringToCheck = 'Inter'
+const substringToCheck = 'Roboto'
 
 const fontWeights = (() => {
   const array = []
@@ -24,13 +24,13 @@ let fontsToDownload = []
 async function downloadGoogleFonts() {
   console.log('Downloading fonts...')
   // try {
-//     await new GetGoogleFonts().download(
-//       'https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&subset=cyrillic'
-//     )
-//     console.log('Done!')
-//   } catch (error) {
-//     console.error('Whoops!', error)
-//   }
+  //     await new GetGoogleFonts().download(
+  //       'https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&subset=cyrillic'
+  //     )
+  //     console.log('Done!')
+  //   } catch (error) {
+  //     console.error('Whoops!', error)
+  //   }
 }
 
 async function checkFolder() {
