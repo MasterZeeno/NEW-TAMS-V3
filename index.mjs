@@ -40,7 +40,7 @@ async function checkFolder() {
       files.forEach((e) => {
         if (e.includes('-')) {
           const trimmedName = e.split('-')[1]
-          if (fontWeights.some(Number(trimmedName)) != true) {
+          if (fontWeights.some(trimmedName) != true) {
             fontsToDownload.push(Number(trimmedName))
           }
         }
