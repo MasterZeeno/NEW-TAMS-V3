@@ -33,35 +33,47 @@ async function downloadGoogleFonts() {
   //   }
 }
 
-async function checkFolder() {
-  try {
-    const files = await fsPromises.readdir(fontsFolderPath)
-    if (files.length > 0 && files.some((file) => file.includes(substringToCheck))) {
-      files.forEach((e) => {
-        if (e.includes('-')) {
-          const trimmedName = e.split('-')[1]
-          if (fontWeights.some(trimmedName) != true) {
-            fontsToDownload.push(Number(trimmedName))
-          }
-        }
-      })
-    } else {
-      console.error('No files yet')
-      await downloadGoogleFonts() // Wait for the fonts to be downloaded before continuing
-    }
-
-    if (fontsToDownload.length < 1) {
-      console.log(
-        'Folder exists, contains files, and at least one file contains the substring "Inter"'
-      )
-    } else {
-      console.log('Folder exists, but no file contains the substring "Inter"')
-      await downloadGoogleFonts() // Wait for the fonts to be downloaded before continuing
-    }
-  } catch (error) {
-    console.error('Error accessing folder:', error)
-    await downloadGoogleFonts() // Wait for the fonts to be downloaded before continuing
+async function ls(path) {
+  const dir = await fs.promises.opendir(path)
+  for await (const dirent of dir) {
+    console.log(dirent.name)
   }
 }
+
+ls('.').catch(console.error)
+
+// async function checkFolder() {
+
+
+
+ //  try {
+//     const files = await fsPromises.readdir(fontsFolderPath)
+//     if (files.length > 0 && files.some((file) => file.includes(substringToCheck))) {
+//       files.forEach((e) => {
+//         if (e.includes('-')) {
+//           const trimmedName = e.split('-')[1]
+//           if (fontWeights.some(trimmedName) != true) {
+//             fontsToDownload.push(Number(trimmedName))
+//           }
+//         }
+//       })
+//     } else {
+//       console.error('No files yet')
+//       await downloadGoogleFonts() // Wait for the fonts to be downloaded before continuing
+//     }
+// 
+//     if (fontsToDownload.length < 1) {
+//       console.log(
+//         'Folder exists, contains files, and at least one file contains the substring "Inter"'
+//       )
+//     } else {
+//       console.log('Folder exists, but no file contains the substring "Inter"')
+//       await downloadGoogleFonts() // Wait for the fonts to be downloaded before continuing
+//     }
+//   } catch (error) {
+//     console.error('Error accessing folder:', error)
+//     await downloadGoogleFonts() // Wait for the fonts to be downloaded before continuing
+//   }
+// }
 // console.log(fontsFolderPath)
-checkFolder()
+// checkFolder()
