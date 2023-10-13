@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  defineProps<{
+defineProps<{
   webAppName: string
 }>()
 </script>
@@ -19,41 +19,41 @@
 </template>
 
 <style scoped>
-  .wrapper {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-  }
-  
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto 2rem;
+}
+
+h1 {
+  font-weight: 500;
+  font-size: 2.6rem;
+  position: relative;
+  top: -10px;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+.banner h1,
+.banner h3 {
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
   .logo {
-    display: block;
-    margin: 0 auto 2rem;
+    margin: 0 2rem 0 0;
   }
-  
-  h1 {
-    font-weight: 500;
-    font-size: 2.6rem;
-    position: relative;
-    top: -10px;
-  }
-  
-  h3 {
-    font-size: 1.2rem;
-  }
-  
+
   .banner h1,
   .banner h3 {
-    text-align: center;
+    text-align: left;
   }
-  
-  @media (min-width: 1024px) {
-       .logo {
-    margin: 0 2rem 0 0;
-    }
-    
-    .banner h1,
-    .banner h3 {
-      text-align: left;
-    }
-  }
+}
 </style>
