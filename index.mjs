@@ -1,79 +1,47 @@
 import { promises as fsPromises } from 'fs'
-import GetGoogleFonts from 'get-google-fonts'
+import { fileURLToPath, URL } from 'node:url'
+import fs from 'fs-extra'
+import ggf from 'get-google-fonts'
 import path from 'path'
 
-// Get the current module's directory name
-const currentDir = new URL(import.meta.url).pathname
-const fontsFolderPath = path
-  .join(currentDir, 'fonts')
-  .substring(1)
-  .replaceAll('%20', ' ')
-  .replaceAll('\\', '/') // Specify the path relative to the project's root
-const substringToCheck = 'Roboto'
+const pathDir = './src/assets/fonts'
+const currentDir = path.join(path.dirname(new URL(import.meta.url).pathname), pathDir)
 
-const fontWeights = (() => {
-  const array = []
-  for (let i = 100; i <= 900; i++) {
-    array.push(i)
+const font_url = {
+    Inter: [ 200, 400, 500, 600, 700, 800 ],
+    Roboto: [ 400, 500, 700 ]
   }
-  return array
-})()
 
-let fontsToDownload = []
-
-async function downloadGoogleFonts() {
-  console.log('Downloading fonts...')
-  // try {
-  //     await new GetGoogleFonts().download(
-  //       'https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&subset=cyrillic'
-  //     )
-  //     console.log('Done!')
-  //   } catch (error) {
-  //     console.error('Whoops!', error)
-  //   }
+const options = {
+	outputDir:  pathDir
 }
 
-async function ls(fontsFolderPath) {
-  const dir = await fs.promises.opendir(fontsFolderPath)
-  for await (const dirent of dir) {
-    console.log(dirent.name)
-  }
+const desiredMode = {
+  mode: 0o2775
 }
 
-ls('.').catch(console.error)
+function noDupes(arr) {
+  return [...new Set(arr)]
+}
 
-// async function checkFolder() {
+async function downloadGoogleFonts(fontObj) {
+  ggf.download([
+    font_url,
+    options
+  ]).then(() => {
+    console.log('Done!')
+  }).catch((e) => {
+    console.log('Whoops!', e)
+  })
+}
 
 
-
- //  try {
-//     const files = await fsPromises.readdir(fontsFolderPath)
-//     if (files.length > 0 && files.some((file) => file.includes(substringToCheck))) {
-//       files.forEach((e) => {
-//         if (e.includes('-')) {
-//           const trimmedName = e.split('-')[1]
-//           if (fontWeights.some(trimmedName) != true) {
-//             fontsToDownload.push(Number(trimmedName))
-//           }
-//         }
-//       })
-//     } else {
-//       console.error('No files yet')
-//       await downloadGoogleFonts() // Wait for the fonts to be downloaded before continuing
-//     }
-// 
-//     if (fontsToDownload.length < 1) {
-//       console.log(
-//         'Folder exists, contains files, and at least one file contains the substring "Inter"'
-//       )
-//     } else {
-//       console.log('Folder exists, but no file contains the substring "Inter"')
-//       await downloadGoogleFonts() // Wait for the fonts to be downloaded before continuing
-//     }
-//   } catch (error) {
-//     console.error('Error accessing folder:', error)
-//     await downloadGoogleFonts() // Wait for the fonts to be downloaded before continuing
-//   }
-// }
-// console.log(fontsFolderPath)
-// checkFolder()
+async function prepareDirectory(directory) {
+  try {
+    await fs.ensureDir(directory, desiredMode)
+  } catch (err) {
+  }
+  downloadGoogleFonts(fontDefs)
+}
+prepareDirectory(currentDir)
+//console.log(fontDefs)

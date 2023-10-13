@@ -1,16 +1,18 @@
+
 /* HCC custom color palette and measurement variables */
 :root {
   --hcc-max-width: 1280px;
   --hcc-min-width: 350px;
-  --hcc-section-gap: calc(var(--hcc-min-width) / 2);
-
+  --hcc-section-gap: calc(var(--hcc-min-width)/2);
+  
   --hcc-default-font-size: 15px;
-
+  
   --hcc-blue-hue: 208.9;
   --hcc-red-hue: 0;
-
+  
   --hcc-blue-lightness: 21.2%;
   --hcc-red-lightness: 40.2%;
+  
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,11 +23,11 @@
 }
 
 :root {
-  --hcc-blue: hsl(var(--hcc-blue-hue), 100%, var(--hcc-blue-lightness));
+	 --hcc-blue: hsl(var(--hcc-blue-hue), 100%, var(--hcc-blue-lightness));
   --hcc-red: hsl(var(--hcc-red-hue), 100%, var(--hcc-red-lightness));
-  --hcc-anchor: hsl(var(--hcc-red-hue), var(--hcc-red-lightness), var(--hcc-red-lightness));
+  --hcc-anchor: hsl(var(--hcc-red-hue), var(--hcc-red-lightness), var(--hcc-blue-lightness));
   --color-text: hsl(var(--hcc-blue-hue), var(--hcc-blue-lightness), var(--hcc-red-lightness));
-}
+	}
 
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
@@ -95,16 +97,16 @@ body {
   line-height: 1.6;
   font-family:
     Inter,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
     Roboto,
     Oxygen,
-    Ubuntu,
-    Cantarell,
+    'Segoe UI',
+    'Helvetica Neue',
     'Fira Sans',
     'Droid Sans',
-    'Helvetica Neue',
+    Ubuntu,
+    Cantarell,
+    -apple-system,
+    BlinkMacSystemFont,
     sans-serif;
   font-size: 15px;
   text-rendering: optimizeLegibility;

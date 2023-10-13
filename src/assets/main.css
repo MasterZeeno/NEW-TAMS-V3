@@ -2,34 +2,33 @@
 
 #app {
   max-width: var(--hcc-max-width);
+  margin: 0 auto;
+  padding: 2rem;
   font-weight: normal;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  margin: auto;
 }
 
-a,
-.red {
+a {
   text-decoration: none;
-  color: var(--hcc-red);
-  transition: color 0.4s ease-in-out;
+  color: var(--hcc-anchor);
+  transition: 0.4s;
 }
 
 .blue {
   color: var(--hcc-blue);
 }
 
+.red {
+  color: var(--hcc-red);
+}
+
 @media (hover: hover) {
   a:hover {
-    /* background-color: hsla(var(--hcc-blue), 0.2); */
-    font-weight: 500;
+    background-color: hsla(var(--hcc-blue), 0.2);
   }
 }
 
-@media (min-width: calc(var(--hcc-min-width)*2)) {
-  /* body {
+@media (min-width: 1024px) {
+  body {
     display: flex;
     place-items: center;
   }
@@ -38,5 +37,5 @@ a,
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 0 2rem;
-  } */
+  }
 }
