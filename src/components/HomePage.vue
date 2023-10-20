@@ -1,59 +1,129 @@
 <script setup lang="ts">
-defineProps<{
-  webAppName: string
-}>()
+  import DynamicLogo from './icons/DynamicLogo.vue'
+  import IconHome from './icons/IconHome.vue'
+  import IconAbout from './icons/IconAbout.vue'
 </script>
 
 <template>
-  <div class="banner">
-    <img alt="HCC" class="logo" src="@/assets/logo.svg" />
-    <div class="wrapper">
-      <h1 class="blue">{{ webAppName }}</h1>
-      <h3>
-        You’ve successfully created a project with
-        <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
-        <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>. What's next?
-      </h3>
+  <div class="front_page">
+    <nav>
+        <RouterLink to="/"><IconHome /></RouterLink>
+      <RouterLink to="/about"><IconAbout /></RouterLink>
+    </nav>
+    <div class="banner">
+      <DynamicLogo />
+      <div class="texts_wrapper">
+        <h1>TAMS-V3</h1>
+        <p>
+          Unofficial<span class="red">ly</span>Redesign<span class="red">ed</span></p>
+        <span class="security">
+          For security concerns, redirect to
+          <a class="blue" href="https://hcc-tams.com.ph/tams/App" target="_blank" rel="noopener">Tamsv2</a>
+        </span>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-}
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-h1 {
-  font-weight: 500;
-  font-size: 2.6rem;
-  position: relative;
-  top: -10px;
-}
-
-h3 {
-  font-size: 1.2rem;
-}
-
-.banner h1,
-.banner h3 {
-  text-align: center;
-}
-
-@media (min-width: 1024px) {
-  .logo {
-    margin: 0 2rem 0 0;
+  div,
+  nav,
+  nav a {
+    display: flex;
+    flex-wrap: nowrap;
+    place-items: center;
+    place-content: center;
+    text-align: center;
   }
-
-  .banner h1,
-  .banner h3 {
-    text-align: left;
+  
+  .front_page {
+    flex-direction: column;
+    line-height: 1.2;
   }
-}
+  
+  nav {
+    line-height: normal;
+    font-size: 0.85rem;
+    padding: 2.5rem;
+  }
+  
+  nav a {
+    color: var(--color-text);
+    margin: 0 0.6rem;
+    border-left: 1px solid var(--color-text);
+  }
+  
+  nav a,
+  nav a svg {
+    opacity: 0.5;
+  }
+  
+  nav a:first-of-type {
+    border: 0;
+  }
+  
+  nav a.router-link-exact-active {
+    color: var(--color-heading);
+    font-weight: 600;
+  }
+  
+  nav a.router-link-exact-active,
+  nav a.router-link-exact-active svg {
+    opacity: 1;
+  }
+  
+  nav a.router-link-exact-active:hover {
+    background-color: transparent;
+  }
+  
+  .banner,
+  nav {
+    flex-direction: row;
+  }
+  
+  .banner {
+    padding: 0.8rem 1rem;
+    border-radius: 0.8rem;
+    background-image: linear-gradient(145deg, hsla(var(--color-background-mute), 0.6), hsla(var(--color-background-soft), 0.6));
+    box-shadow: 1rem 1rem 2rem var(--color-background-mute),
+      -1rem -1rem 2rem var(--color-background-soft);
+  }
+  
+  .texts_wrapper {
+    flex-direction: column;
+    padding: 0 0.4rem 0.6rem 0.55rem;
+  }
+  
+  h1, p {
+    text-wrap: nowrap;
+    text-shadow: 0.06rem 0.06rem 0.1rem var(--color-background-soft),
+      -0.06rem -0.06rem 0.1rem var(--color-background-mute);
+  }
+  
+  h1 {
+    font-weight: 900;
+    font-size: 2.2rem;
+  }
+  
+  .texts_wrapper p span {
+    font-family: 'Satisfy';
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+  
+  .texts_wrapper p {
+    color: var(--color-heading);
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  
+  .texts_wrapper span.security {
+    font-style: italic;
+    font-size: 0.45rem;
+  }
+  
+  .texts_wrapper span.security a {
+    font-weight: 600;
+  }
 </style>

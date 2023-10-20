@@ -1,10 +1,18 @@
 @import './base.css';
 
 #app {
-  max-width: var(--hcc-max-width);
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+  position: relative;
+  width: clamp(var(--hcc-min-width)+6rem, 100vw, var(--hcc-max-width));
+  height: 100%;
+  background: transparent;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--hcc-flex-gap);
+  place-items: flex-start;
+  place-content: space-around;
+  padding: 0 3rem 5rem 3rem;
+  font-weight: 400;
 }
 
 a {
@@ -17,25 +25,19 @@ a {
   color: var(--hcc-blue);
 }
 
-.red {
+a, .red {
   color: var(--hcc-red);
 }
 
+.icon {
+    margin: 0 0.6rem 0 0.8rem;
+  }
+
 @media (hover: hover) {
-  a:hover {
-    background-color: hsla(var(--hcc-blue), 0.2);
+  a:hover, a.red:hover {
+    background-color: hsla(var(--hcc-red),0.2);
   }
-}
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
+  a.blue:hover {
+    background-color: hsla(var(--hcc-blue),0.2);
   }
 }

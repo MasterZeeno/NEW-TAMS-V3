@@ -1,42 +1,65 @@
-import fs from 'fs-extra'
-import GetGoogleFonts from 'get-google-fonts'
-import path from 'path'
+import fs from "fs-extra"
+import GetGoogleFonts from "get-google-fonts"
+import path from "path"
 
-const pathDir = './src/assets/fonts'
-const currentDir = path.join(path.dirname(new URL(import.meta.url).pathname), pathDir)
+const pathDir = "./src/assets/fonts"
 
-const font_url = GetGoogleFonts.constructUrl(
-  {
-    Inter: [200, 400, 500, 600, 700, 800],
-    Roboto: [400, 500, 700]
-  },
-  ['cyrillic']
+const font_family = ['Montserrat', 'Lora', 'Satisfy']
+
+const arrayRange = (start, stop, step) =>
+  Array.from(
+    { length: (stop - start) / step + 1 },
+    (value, index) => start + index * step
+  );
+
+const font_sizes = arrayRange(100, 900, 100)
+
+const font_url_setup = font_family.map(e => {
+  const fn = e.toString().replace(' ', '+')
+  let temp = 'family=' + fn
+  const wghts = [[]]
+  for (let i = 0; i <= 1; i++) {
+    font_sizes.forEach(f => {
+      if ((fn == 'Lora' && f >= 400 && f <= 700) || fn != 'Lora') {
+        if (fn != 'Satisfy') {
+          wghts.push([i, f])
+        }
+      }
+    })
+  }
+  temp = temp + (wghts.length > 1 ? ':ital,wght@' : '')
+  return temp + wghts.join(';').substring(1)
+}).join("&")
+
+const font_url = `https://fonts.googleapis.com/css2?${font_url_setup}&subset=cyrillic`
+
+const currentDir = path.join(
+  path.dirname(new URL(import.meta.url).pathname),
+  pathDir
 )
 
-// const options = new GetGoogleFonts({
-//   outputDir: pathDir
-// })
-
-const desiredMode = {
-  mode: 0o2775
-}
-
 async function downloadGoogleFonts() {
+  console.log("Downloading fonts...");
   new GetGoogleFonts()
-    .download(font_url, { outputDir: pathDir })
+    .download(
+      font_url, { outputDir: pathDir, overwriting: true })
     .then(() => {
-      console.log('Done!')
+      console.log("\n\nSuccess!\n\n"+
+      "Downloaded fonts:\n" 
+       + ' •' + font_family.join('\n •'));
     })
     .catch((e) => {
-      console.log('Whoops!', e)
-    })
+      console.log("Whoops!", e);
+    });
 }
 
 async function prepareDirectory(directory) {
   try {
-    await fs.ensureDir(directory, desiredMode)
+    await fs.ensureDir(directory, { mode: 0o2775 });
   } catch (err) {
-    downloadGoogleFonts()
+    console.log("Error:", err);
   }
+  downloadGoogleFonts();
 }
-prepareDirectory(currentDir)
+// console.log(font_url)
+ prepareDirectory(currentDir);

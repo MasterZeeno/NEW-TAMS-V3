@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'hcc';
+  src:  url('fonts/hcc.eot?qyltgm');
+  src:  url('fonts/hcc.eot?qyltgm#iefix') format('embedded-opentype'),
+    url('fonts/hcc.ttf?qyltgm') format('truetype'),
+    url('fonts/hcc.woff?qyltgm') format('woff'),
+    url('fonts/hcc.svg?qyltgm#hcc') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'hcc' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-hcc {
+  font-size: 5.5rem;
+}
+
+.icon-hcc .blue:before {
+  content: "\e900";
+}
+.icon-hcc .red:before {
+  content: "\e901";
+  margin-left: -1em;
+}
