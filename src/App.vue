@@ -2,16 +2,16 @@
 import { RouterView } from 'vue-router'
 import HomePage from './components/HomePage.vue'
 import LoginBox from './components/LoginBox.vue'
-import { ref } from 'vue'
+import { ref, watchEffect } from 'vue'
 
-const showLogin = ref(true);
+const showLogin = ref(false);
 
-// onMounted(() => {
-//   const isActive = document.querySelectorAll('nav a')[0];
-//   if (isActive && isActive.classList.contains('router-link-exact-active')) {
-//     showLogin.value = true;
-//   }
-// });
+watchEffect(() => {
+  const isActive = document.querySelector('#homeLink')
+  const logged = false
+  showLogin.value = (logged && isActive && isActive.classList.contains('router-link-exact-active'))
+  console.log(isActive)
+})
 
 </script>
 
@@ -20,7 +20,7 @@ const showLogin = ref(true);
     <HomePage />
   </header>
   <section>
-    <LoginBox v-if="showLogin"></LoginBox>
+    <LoginBox v-if='showLogin.value'></LoginBox>
     <RouterView v-else></RouterView>
   </section>
 </template>
@@ -34,9 +34,11 @@ header {
   background: linear-gradient(var(--color-background) 90%, transparent 100%);
 }
 
-header,
+header {
+  width: clamp(var(--hcc-min-width), 80vw, var(--hcc-split-width)-100px);
+}
+
 section {
-  height: 100%;
   width: clamp(var(--hcc-min-width), 80vw, var(--hcc-split-width));
 }
 </style>

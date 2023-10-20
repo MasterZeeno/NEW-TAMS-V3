@@ -2,15 +2,36 @@
 import DynamicLogo from './icons/DynamicLogo.vue'
 import IconHome from './icons/IconHome.vue'
 import IconAbout from './icons/IconAbout.vue'
+import { ref, computed } from 'vue'
+import { RouterLink } from 'vue-router'
+
+const isActive = ref(true)
+
+const classObject = computed(() => ({
+  active: isActive.value
+}))
+
+const classObject2 = computed(() => ({
+  active: !isActive.value
+}))
+
+function toggleActive(event: any) {
+  if (event) {
+    if (!event.target.classList.contains(isActive.value.toString())) {
+      isActive.value = !isActive.value
+    }
+  }
+}
+
 </script>
 
 <template>
   <div class="front_page">
     <nav>
-      <RouterLink to="/">
+      <RouterLink @click="toggleActive" :class="classObject" id="homeLink" to="/">
         <IconHome />
       </RouterLink>
-      <RouterLink to="/about">
+      <RouterLink @click="toggleActive" :class="classObject2" id="idLink" to="/about">
         <IconAbout />
       </RouterLink>
     </nav>
@@ -66,17 +87,17 @@ nav a:first-of-type {
   border: 0;
 }
 
-nav a.router-link-exact-active {
+nav a.active {
   color: var(--color-heading);
   font-weight: 600;
 }
 
-nav a.router-link-exact-active,
-nav a.router-link-exact-active svg {
+nav a.active,
+nav a.active svg {
   opacity: 1;
 }
 
-nav a.router-link-exact-active:hover {
+nav a.active:hover {
   background-color: transparent;
 }
 

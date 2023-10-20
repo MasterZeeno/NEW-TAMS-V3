@@ -11,7 +11,7 @@
   gap: var(--hcc-flex-gap);
   place-items: flex-start;
   place-content: space-around;
-  padding: 0 3rem 5rem 3rem;
+  padding:  3rem;
   font-weight: 400;
 }
 

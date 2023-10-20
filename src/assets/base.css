@@ -4,8 +4,8 @@
 :root {
   --hcc-max-width: 1000px;
   --hcc-min-width: 300px;
-  --hcc-split-width: 500px;
-  --hcc-flex-gap: calc(var(--hcc-min-width)/10);
+  --hcc-split-width: 600px;
+  --hcc-flex-gap: calc(var(--hcc-min-width)/4);
   
   --hcc-default-font-size: 15px;
   
@@ -85,12 +85,16 @@
   margin: 0;
   padding: 0;
   font-weight: normal;
-  transition: color 0.6s ease-in-out;
+}
+
+div:not(.banner) {
+  transition: all 0.6s ease-in-out;
 }
 
 body {
   min-height: 100vh;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   color: var(--color-text);
