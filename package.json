@@ -3,7 +3,7 @@
   "version": "3.1.22-Z",
   "private": true,
   "scripts": {
-    "prep": "node index.mjs",
+    "prep": "pnpm install && node index.mjs",
     "dev": "vite --host",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",

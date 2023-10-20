@@ -23,6 +23,8 @@ function toggleActive(event: any) {
   }
 }
 
+export { isActive }
+
 </script>
 
 <template>
@@ -62,6 +64,9 @@ nav a {
 }
 
 .front_page {
+  width: 100%;
+  background: linear-gradient(var(--color-background) 90%, transparent 100%);
+  padding-bottom: 4rem;
   flex-direction: column;
   line-height: 1.2;
 }
@@ -107,16 +112,17 @@ nav {
 }
 
 .banner {
-  padding: 0.8rem 1rem;
+  padding: 1rem;
+  padding-bottom: 0.5rem;
   border-radius: 0.8rem;
-  background-image: linear-gradient(145deg, hsla(var(--color-background-mute), 0.6), hsla(var(--color-background-soft), 0.6));
+  background: linear-gradient(145deg, var(--color-background), var(--color-background-soft));
   box-shadow: 1rem 1rem 2rem var(--color-background-mute),
     -1rem -1rem 2rem var(--color-background-soft);
 }
 
 .texts_wrapper {
   flex-direction: column;
-  padding: 0 0.4rem 0.6rem 0.55rem;
+  padding: 0 0.3rem 0.8rem 0.45rem;
 }
 
 h1,

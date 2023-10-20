@@ -3,15 +3,13 @@
 #app {
   position: relative;
   width: clamp(var(--hcc-min-width)+6rem, 100vw, var(--hcc-max-width));
-  height: 100%;
-  background: transparent;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: var(--hcc-flex-gap);
+  /* gap: var(--hcc-flex-gap); */
   place-items: flex-start;
   place-content: space-around;
-  padding:  3rem;
+  padding: 0 3rem 4rem;
   font-weight: 400;
 }
 
