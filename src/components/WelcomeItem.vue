@@ -16,7 +16,8 @@
 .item {
   display: flex;
   position: relative;
-  
+  min-width: var(--hcc-min-width);
+
 }
 
 .details {
