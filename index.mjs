@@ -54,6 +54,10 @@ async function downloadGoogleFonts() {
 }
 
 async function prepareDirectory(directory) {
+  fs.remove(directory, err =>{
+    if (err) return console.error(err)
+    console.log('Deleted outdated font folder.')
+  })
   try {
     await fs.ensureDir(directory, { mode: 0o2775 });
   } catch (err) {
