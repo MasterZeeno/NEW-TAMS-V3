@@ -54,8 +54,6 @@ div {
 
 .front_page {
   width: 100%;
-  background: linear-gradient(var(--color-background) 90%, transparent 100%);
-  padding-bottom: 4rem;
   flex-direction: column;
   line-height: 1.2;
 }
