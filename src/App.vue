@@ -27,6 +27,8 @@ header {
   top: 0;
   padding-bottom: 2rem;
   z-index: 5;
+  background: linear-gradient(var(--color-background) 90%, transparent 100%);
+  padding-bottom: 4rem;
 }
 
 nav,
