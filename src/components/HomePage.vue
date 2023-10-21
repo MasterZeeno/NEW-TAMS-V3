@@ -62,9 +62,6 @@ div {
 
 .banner {
   flex-direction: row;
-}
-
-.banner {
   padding: 1rem;
   padding-bottom: 0.5rem;
   border-radius: 0.8rem;
