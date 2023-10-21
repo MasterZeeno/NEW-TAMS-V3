@@ -29,7 +29,6 @@ header {
   z-index: 5;
 }
 
-header,
 nav,
 nav a {
   display: flex;
