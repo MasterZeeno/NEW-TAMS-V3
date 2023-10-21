@@ -2,26 +2,7 @@
 import DynamicLogo from './icons/DynamicLogo.vue'
 import IconHome from './icons/IconHome.vue'
 import IconAbout from './icons/IconAbout.vue'
-import { ref, computed } from 'vue'
-import { RouterLink } from 'vue-router'
 
-const isActive = ref(true)
-
-const classObject = computed(() => ({
-  active: isActive.value
-}))
-
-const classObject2 = computed(() => ({
-  active: !isActive.value
-}))
-
-function toggleActive(event) {
-  if (event) {
-    if (!event.target.classList.contains(isActive.value.toString())) {
-      isActive.value = !isActive.value
-    }
-  }
-}
 
 </script>
 
