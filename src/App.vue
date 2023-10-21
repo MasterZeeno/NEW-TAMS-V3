@@ -3,6 +3,7 @@ import { RouterView } from 'vue-router'
 import HomePage from './components/HomePage.vue'
 import { ref, computed } from 'vue'
 import { RouterLink } from 'vue-router'
+import LoginBox from './components/LoginBox.vue'
 
 const isActive = ref(true)
 
