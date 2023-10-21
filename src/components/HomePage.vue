@@ -27,14 +27,7 @@ function toggleActive(event) {
 
 <template>
   <div class="front_page">
-    <nav>
-      <RouterLink @click="toggleActive" :class="classObject" id="homeLink" to="/">
-        <IconHome />
-      </RouterLink>
-      <RouterLink @click="toggleActive" :class="classObject2" id="idLink" to="/about">
-        <IconAbout />
-      </RouterLink>
-    </nav>
+    
     <div class="banner">
       <DynamicLogo />
       <div class="texts_wrapper">
@@ -69,43 +62,7 @@ nav a {
   line-height: 1.2;
 }
 
-nav {
-  line-height: normal;
-  font-size: 0.85rem;
-  padding: 2.5rem;
-}
-
-nav a {
-  color: var(--color-text);
-  margin: 0 0.6rem;
-  border-left: 1px solid var(--color-text);
-}
-
-nav a,
-nav a svg {
-  opacity: 0.5;
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-nav a.active {
-  color: var(--color-heading);
-  font-weight: 600;
-}
-
-nav a.active,
-nav a.active svg {
-  opacity: 1;
-}
-
-nav a.active:hover {
-  background-color: transparent;
-}
-
-.banner,
-nav {
+.banner {
   flex-direction: row;
 }
 
