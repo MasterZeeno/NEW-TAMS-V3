@@ -1,8 +1,5 @@
 <script setup>
 import DynamicLogo from './icons/DynamicLogo.vue'
-import IconHome from './icons/IconHome.vue'
-import IconAbout from './icons/IconAbout.vue'
-
 
 </script>
 

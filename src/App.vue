@@ -1,11 +1,18 @@
 <script setup>
-import { RouterView } from 'vue-router'
 import HomePage from './components/HomePage.vue'
-import { ref, computed } from 'vue'
-import { RouterLink } from 'vue-router'
 import LoginBox from './components/LoginBox.vue'
+import IconHome from './components/icons/IconHome.vue'
+import IconAbout from './components/icons/IconAbout.vue'
+import { RouterLink, RouterView } from 'vue-router'
+import { ref, computed } from 'vue'
 
 const isActive = ref(true)
+const loggedOut = ref(true)
+
+const showLoginBox = computed(() => (
+  (loggedOut.value && isActive.value) ||
+  classObject2.value == { active: false }
+))
 
 const classObject = computed(() => ({
   active: isActive.value
@@ -37,7 +44,7 @@ function toggleActive(event) {
     <HomePage />
   </header>
   <section>
-    <LoginBox v-if='classObject'></LoginBox>
+    <LoginBox v-if='showLoginBox'></LoginBox>
     <RouterView v-else></RouterView>
   </section>
 </template>
