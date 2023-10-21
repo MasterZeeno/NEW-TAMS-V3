@@ -44,9 +44,7 @@ function toggleActive(event) {
 </template>
 
 <style scoped>
-div,
-nav,
-nav a {
+div {
   display: flex;
   flex-wrap: nowrap;
   place-items: center;
