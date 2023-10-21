@@ -37,7 +37,8 @@ function toggleActive(event) {
     <HomePage />
   </header>
   <section>
-    <RouterView></RouterView>
+    <LoginBox v-if='classObject'></LoginBox>
+    <RouterView v-else></RouterView>
   </section>
 </template>
 
