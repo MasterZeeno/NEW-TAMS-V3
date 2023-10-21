@@ -62,8 +62,8 @@ button {
   font-weight: 600;
   color: white;
   background: var(--hcc-red);
-  box-shadow: 0.08rem 0.08rem 0.2rem var(--color-background-mute),
-    -0.08rem -0.08rem 0.2rem var(--color-background-soft);
+  box-shadow: 0.1rem 0.1rem 0.5rem var(--color-background-mute),
+    -0.1rem -0.1rem 0.5rem var(--color-background-soft);
 }
 
 span {

@@ -1,5 +1,5 @@
 <template>
-  <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="currentColor">
+  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="currentColor">
     <path opacity="0.4"
       d="M12 22.01C17.5228 22.01 22 17.5329 22 12.01C22 6.48716 17.5228 2.01001 12 2.01001C6.47715 2.01001 2 6.48716 2 12.01C2 17.5329 6.47715 22.01 12 22.01Z" />
     <path
@@ -10,8 +10,6 @@
 </template>
 <style scoped>
 svg {
-  padding: 0;
-  margin: 0;
   border-radius: 50%;
   box-shadow: inset 0.06rem 0.06rem 0.1rem var(--color-background-soft),
     inset -0.06rem -0.06rem 0.1rem var(--color-background-mute);
