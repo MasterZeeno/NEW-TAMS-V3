@@ -8,7 +8,6 @@ import IconAbout from './icons/IconAbout.vue'
 
 <template>
   <div class="front_page">
-    
     <div class="banner">
       <DynamicLogo />
       <div class="texts_wrapper">
